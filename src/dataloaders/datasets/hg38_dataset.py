@@ -138,8 +138,9 @@ class HG38Dataset(torch.utils.data.Dataset):
         else:
             raise ValueError(f"`max_length` {max_length} (> 2^{int(math.log(MAX_ALLOWED_LENGTH, 2))}) is too large!")
 
-        bed_path = Path("./data/hg38/human-sequences.bed")
-        assert bed_path.exists(), "Path to .bed file must exist!"
+        if local:
+            bed_path = Path("/home/ak5078/long_context_experiments/data/hg38/human-sequences.bed")
+            assert bed_path.exists(), "Path to .bed file must exist!"
 
         df_raw =pd.read_csv(str(bed_path), sep="\t", names=["chr_name", "start", "end", "split"])
             
