@@ -10,6 +10,5 @@ batch_size: 8  # per GPU
 batch_size_eval: ${eval:${.batch_size} * 2}
 num_workers: 4  # For preprocessing only
 shuffle: True
-local: False
 __train_len: 34021
 __l_max: ${.max_length}

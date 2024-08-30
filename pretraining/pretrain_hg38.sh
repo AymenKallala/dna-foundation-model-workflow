@@ -1,8 +1,6 @@
 S3_BUCKET_PATH="${AICHOR_OUTPUT_PATH}"
 
 python -m pretraining.pretrain   experiment=hg38/hg38  \
-        dataset.bed_file=${AICHOR_INPUT_PATH}data/hg38/human-sequences.bed \
-        dataset.fasta_file=${AICHOR_INPUT_PATH}data/hg38/hg38-ml.fa \
         dataset.max_length=12000\
         dataset.batch_size=1\
         dataset.batch_size_eval=1\
@@ -10,7 +8,6 @@ python -m pretraining.pretrain   experiment=hg38/hg38  \
         dataset.shuffle=true \
         dataset.mlm_probability=0.15 \
         dataset.rc_aug=false \
-        dataset.local=false \
         dataset.num_workers=4\
         model=caduceus \
         model.config.d_model=768 \
